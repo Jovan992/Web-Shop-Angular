@@ -1,0 +1,22 @@
+i {
+    display: block;
+    margin: 16px 3px 16px 3px;
+}
+
+#social-bar {
+    position: fixed;
+    right: 0;
+    top: 50%;
+    transform: translate(0%, -50%);
+    background-color: white;
+    font-size: 10px;
+    border-top-left-radius: 2px;
+    border-bottom-left-radius: 2px;
+}
+#prvi-i {
+    margin-top: 3px;
+}
+
+#poslednji-i {
+    margin-bottom: 3px;
+}

@@ -1,0 +1,83 @@
+.home-img {
+    height: 400px;
+    background-image: url(../../../assets/flowerBackground1.jpg);
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    position: relative;
+}
+
+.home-img-text {
+   text-align: end; 
+   position: absolute;
+   right: 0;
+   top: 18%;
+   
+}
+
+#home-img-text1,
+#info,
+#forma {
+    font-size: 10px;
+}
+
+#home-img-text1 {
+    margin-bottom: 8px;
+}
+
+#button-Shop,
+
+#button-Load,
+#button-subscribe,
+#button-send,
+input {
+    font-size: 10px;
+}
+
+#text-div,
+#wishes-text,
+#button-wishes {
+    font-size: 10px;
+}
+
+.item-img {
+    width: 100%;
+}
+
+.wishes-img {
+    width: 100%;
+    /* height: 80%; */
+}
+
+#item-img-name {
+    text-align: center;
+}
+
+.polje-forma {
+    border: none;
+    border-bottom: 1px solid black;
+}
+input {
+    border: none;
+}
+
+#newsletters-div {
+    border: 1px solid black;
+}
+
+#wishes-div {
+    background-color: pink;
+}
+#buket-veliki {
+    background-image: url(../../../assets/FTD_SplitBanner_Merx_1.png);
+    background-position: center;
+    background-size: cover;
+   
+}
+
+#wishes-div,
+#buket-veliki {
+    height: 400px;
+}
