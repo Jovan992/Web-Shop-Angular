@@ -1,0 +1,18 @@
+<div class="container-fluid d-flex justify-content-center">
+    <div class="col-md-8">
+
+        <div class="row">
+            <div id="category-div" class="d-flex gap p-1 justify-content-between">
+                <div class="col-2 px-2 text-center" *ngFor="let cat of categoryList" (click)='loadCategory(cat.id)'>
+                    <p>{{cat.name}}</p>
+                    <img [src]="cat.imgSrc" class="cat-cover-img">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="container-fluid d-flex text-center justify-content-center mb-2">
+<router-outlet></router-outlet>
+</div>

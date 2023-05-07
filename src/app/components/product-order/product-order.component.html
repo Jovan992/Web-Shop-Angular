@@ -1,0 +1,79 @@
+<div class="container-fluid d-flex justify-content-center ">
+    <div id="signup-box" class="col-md-8 d-flex justify-content-center align-items-center">
+        <div class="row">
+            <div class="col-12">
+                <form action="" [formGroup]="orderForm" (ngSubmit)="onSubmit()">
+                    <div class="text-start form-floating marg form-group">
+                        <input type="text" placeholder="First Name" class="form-control" id="firstName" name="firstName"
+                            formControlName="firstName"><br>
+                        <label for="firstName">First Name<span class="red-span">*</span>:</label><br>
+                    </div>
+                    <div class="error-msg" *ngIf="!orderForm.controls['firstName'].valid && orderForm.controls['firstName'].touched">
+                        <span *ngIf="orderForm.controls['firstName'].errors?.['required']" class="error-msg">First name
+                            is required.</span>
+                        <span *ngIf="orderForm.controls['firstName'].errors?.['minlength']" class="error-msg">First name
+                            must be at least 5 characters.</span>
+                    </div>
+                    <div class="text-start form-floating marg form-group">
+                        <input type="text" placeholder="Last Name" class="form-control" id="lastName" name="lastName"
+                            formControlName="lastName"><br>
+                        <label for="lastName">Last Name<span class="red-span">*</span>:</label><br>
+                    </div>
+                    <div class="error-msg" *ngIf="!orderForm.controls['lastName'].valid && orderForm.controls['lastName'].touched">
+                        <span *ngIf="orderForm.controls['lastName'].errors?.['required']" class="error-msg">Last name
+                            is required.</span>
+                        <span *ngIf="orderForm.controls['lastName'].errors?.['minlength']" class="error-msg">Last name
+                            must be at least 5 characters.</span>
+                    </div>
+                    <div class="text-start form-floating marg form-group">
+                        <input type="email" placeholder="Email address" class="form-control" id="email" name="email"
+                            formControlName="email"><br>
+                        <label for="email">Email address<span class="red-span">*</span>:</label><br>
+                    </div>
+                    <div class="error-msg" *ngIf="!orderForm.controls['email'].valid && orderForm.controls['email'].touched">
+                        <span *ngIf="orderForm.controls['email'].errors?.['required']" class="error-msg">Email
+                            is required.</span>
+                        <span *ngIf="orderForm.controls['email'].errors?.['email']" class="error-msg">Please type in correct email address.</span>
+                    </div>
+                    <div class="text-start form-floating marg form-group">
+                        <input type="number" max="9999999999" placeholder="Phone Number" class="form-control" id="tel"
+                            name="tel" formControlName="tel"><br>
+                        <label for="tel">Phone Number<span class="red-span">*</span>:</label><br>
+                    </div>
+                    <div class="error-msg" *ngIf="!orderForm.controls['tel'].valid && orderForm.controls['tel'].touched">
+                        <span *ngIf="orderForm.controls['tel'].errors?.['required']" class="error-msg">Phone number
+                            is required.</span>
+                        <span *ngIf="orderForm.controls['tel'].errors?.['pattern']" class="error-msg">Please type in correct phone number.</span>
+                    </div>
+                    <div class="text-start form-floating marg form-group">
+                        <input type="text" placeholder="Address" class="form-control" id="address" name="address"
+                            formControlName="address"><br>
+                        <label for="address">Address<span class="red-span">*</span>:</label><br>
+                    </div>
+                    <div class="error-msg" *ngIf="!orderForm.controls['address'].valid && orderForm.controls['address'].touched">
+                        <span *ngIf="orderForm.controls['address'].errors?.['required']" class="error-msg">Address
+                            is required.</span>
+                        <span *ngIf="orderForm.controls['address'].errors?.['pattern']" class="error-msg">Please type in correct phone number.</span>
+                    </div>
+                    <div class="text-start form-floating marg form-group">
+                        <textarea placeholder="Comment" rows="1" class="form-control" id="comment" name="comment"
+                            formControlName="comment"></textarea><br>
+                        <label for="comment">Comment:</label><br>
+                    </div>
+                    <div class="text-start form-floating marg">
+                        <select class="form-select form-floating pb-1 form-group" name="paymentMethod"
+                            id="paymentMethod">
+                            <option value="Credit Card">Credit Card</option>
+                            <option value="PayPal">PayPal</option>
+                            <option value="Payment on Delivery">Payment on Delivery</option>
+                        </select>
+                        <label for="paymentMethod">Payment method<span class="red-span">*</span>:</label><br>
+                    </div>
+                    <div class="text-center">
+                        <button id="confirm-btn" type="submit" class="btn btn-dark rounded-0 px-5 my-3" routerLink="/">Confirm</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

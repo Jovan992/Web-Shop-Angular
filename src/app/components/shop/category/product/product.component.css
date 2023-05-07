@@ -1,0 +1,12 @@
+a {
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+}
+
+#nazivProizvoda,
+#cenaProizvoda {
+    font-weight: bold;
+}
+
+

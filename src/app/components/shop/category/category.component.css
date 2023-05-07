@@ -1,0 +1,15 @@
+img {
+    cursor: pointer;
+}
+
+#cat-row-gap{
+    gap: 10px;
+}
+
+#nazivProizvoda {
+    font-weight: bold;
+}
+
+#cenaProizvoda{
+    font-style: italic;
+}

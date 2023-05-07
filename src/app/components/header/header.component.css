@@ -1,5 +1,5 @@
 #header-ikonice {
-    font-size: 16px;
+    font-size: 22px;
 }
 
 #header-padajuci-user {
@@ -8,13 +8,23 @@
 }
 
 #header-ikonica-brojac {
-    font-size: 8px;
+    font-size: 10px;
 }
 
 #nav-div {
-    font-size: 12px;
+    font-size: 16px;
 }
 
 #hamburger {
     font-size: 12px;
+}
+
+#login-text{
+    font-size: 14px;
+    text-decoration: none;
+    color: black;
+}
+
+#cart-div{
+    cursor: pointer;
 }

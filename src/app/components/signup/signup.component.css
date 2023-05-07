@@ -1,0 +1,30 @@
+#signup-box {
+    height: 900px;
+    background-image: url(../../../assets/loginBackground.jpg);
+    background-position: center;
+    background-size: cover;
+}
+
+input{
+    width: 300px;
+    border: 1px solid silver;
+    border-radius: 3px;
+}
+
+#signup-text{
+    color: black;
+}
+
+#signup-text-div{
+    font-size: 12px;
+}
+
+.error-msg
+{
+    color: red;
+    font-size: 12px;
+}
+
+input.ng-invalid.ng-touched{
+    border: 1px solid red;
+}

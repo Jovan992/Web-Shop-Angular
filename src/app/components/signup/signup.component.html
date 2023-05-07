@@ -1,0 +1,51 @@
+<div class="container-fluid d-flex justify-content-center ">
+    <div id="signup-box" class="col-md-8 d-flex justify-content-center align-items-center text-center">
+        <div class="row">
+            <div class="col-12">
+                <h3 class="mb-3">Sign Up</h3>
+
+                <form action="" class="text-start col-12" (ngSubmit)="signUp()" #signUpForm="ngForm">
+                    <label for="name">First Name</label><br>
+                    <input type="text" id="name" name="name" ngModel #name="ngModel" required minlength="5"><br>
+                    <div *ngIf="name.touched && !name.valid">
+                        <span class="error-msg" *ngIf="name.touched && !name.value">Name is required</span>
+                        <span class="error-msg" *ngIf="name.errors?.['minlength']">Name must be at least 5
+                            characters.</span>
+                    </div>
+
+                    <label for="surname">Last Name</label><br>
+                    <input type="text" id="surname" name="surname" ngModel #surname="ngModel" required
+                        minlength="5"><br>
+                    <div *ngIf="surname.touched && !surname.valid">
+                        <span class="error-msg" *ngIf="surname.touched && !surname.value">Surname is required</span>
+                        <span class="error-msg" *ngIf="surname.errors?.['minlength']">Surname must be at least 5
+                            characters.</span>
+                    </div>
+
+                    <label for="email">Email</label><br>
+                    <input class="p-1" type="email" id="email" ngModel name="email" #email="ngModel" required email
+                        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"><br>
+
+                    <div *ngIf="email.touched && !email.valid">
+                        <span class="error-msg" *ngIf="email.touched && !email.value">Email is required</span>
+                        <span class="error-msg" *ngIf="email.errors?.['pattern'] ">Enter valid email adress</span>
+                    </div>
+                    <label for="password">Password</label><br>
+                    <input class="p-1" type="password" id="password" name="password" #password="ngModel" ngModel
+                        required minlength="5"><br>
+                    <div *ngIf="password.touched && !password.valid">
+                        <span class="error-msg" *ngIf="password.touched && !password.value">Password is required</span>
+                        <span class="error-msg" *ngIf="password.errors?.['minlength'] ">Your password must be at least 5
+                            characters.</span>
+                    </div>
+
+                    <p class=" mt-5">Forgot password?</p>
+                    <button class="btn btn-light col-12" type="submit" [disabled]="!signUpForm.valid">Sign Up</button>
+                    <div class="mb-3 text-center" id="signup-text-div">
+                        <p>Already a member? <a id="signup-text" routerLink="/login">log In</a> </p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

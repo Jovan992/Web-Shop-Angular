@@ -1,0 +1,32 @@
+.red-span{
+    color: red;
+}
+
+form,
+input{
+    width: 500px;
+}
+
+input, 
+textarea,
+select{
+    border: none;
+    border-bottom: 2px solid silver;
+}
+
+.marg{
+    margin-bottom: -30px;
+}
+
+select {
+	appearance: none;
+}
+
+.error-msg
+{
+    color: red;
+    font-size: 12px;
+    margin-top: -45px;
+margin-bottom: 12px;
+}
+

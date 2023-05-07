@@ -7,6 +7,14 @@ import { HomeComponent } from './components/home/home.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { SocialSidebarComponent } from './components/social-sidebar/social-sidebar.component';
+import { ShopComponent } from './components/shop/shop.component';
+import { CategoryComponent } from './components/shop/category/category.component';
+import { ProductComponent } from './components/shop/category/product/product.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { LoginComponent } from './components/login/login.component';
+import { SignupComponent } from './components/signup/signup.component';
+import { ShopingCartComponent } from './components/shoping-cart/shoping-cart.component';
+import { ProductOrderComponent } from './components/product-order/product-order.component';
 
 @NgModule({
   declarations: [
@@ -14,11 +22,20 @@ import { SocialSidebarComponent } from './components/social-sidebar/social-sideb
     HomeComponent,
     HeaderComponent,
     FooterComponent,
-    SocialSidebarComponent
+    SocialSidebarComponent,
+    ShopComponent,
+    CategoryComponent,
+    ProductComponent,
+    LoginComponent,
+    SignupComponent,
+    ShopingCartComponent,
+    ProductOrderComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
