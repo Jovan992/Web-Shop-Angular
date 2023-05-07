@@ -1,51 +1,81 @@
-<div class="container-fluid d-flex justify-content-center ">
-    <div id="signup-box" class="col-md-8 d-flex justify-content-center align-items-center text-center">
-        <div class="row">
+<div class="container d-flex justify-content-center ">
+    <div class="row col-12 ">
+        <div id="signup-box" class="d-flex col-12 justify-content-center align-items-center text-center">
             <div class="col-12">
+
                 <h3 class="mb-3">Sign Up</h3>
+                <div class="col-12 d-flex justify-content-center">
 
-                <form action="" class="text-start col-12" (ngSubmit)="signUp()" #signUpForm="ngForm">
-                    <label for="name">First Name</label><br>
-                    <input type="text" id="name" name="name" ngModel #name="ngModel" required minlength="5"><br>
-                    <div *ngIf="name.touched && !name.valid">
-                        <span class="error-msg" *ngIf="name.touched && !name.value">Name is required</span>
-                        <span class="error-msg" *ngIf="name.errors?.['minlength']">Name must be at least 5
-                            characters.</span>
-                    </div>
+                    <form action="" class="text-start col-8 col-sm-8 col-md-6 col-lg-4" (ngSubmit)="signUp()" #signUpForm="ngForm">
+                        <label for="name">First Name</label><br>
+                        <input class="col-12" type="text" id="name" name="name" ngModel #name="ngModel" required
+                            minlength="5"><br>
+                        <div *ngIf="name.touched && !name.valid">
+                            <span class="error-msg" *ngIf="name.touched && !name.value">Name is required</span>
+                            <span class="error-msg" *ngIf="name.errors?.['minlength']">Name must be at least 5
+                                characters.</span>
+                        </div>
 
-                    <label for="surname">Last Name</label><br>
-                    <input type="text" id="surname" name="surname" ngModel #surname="ngModel" required
-                        minlength="5"><br>
-                    <div *ngIf="surname.touched && !surname.valid">
-                        <span class="error-msg" *ngIf="surname.touched && !surname.value">Surname is required</span>
-                        <span class="error-msg" *ngIf="surname.errors?.['minlength']">Surname must be at least 5
-                            characters.</span>
-                    </div>
+                        <label for="surname">Last Name</label><br>
+                        <input class="col-12" type="text" id="surname" name="surname" ngModel #surname="ngModel"
+                            required minlength="5"><br>
+                        <div *ngIf="surname.touched && !surname.valid">
+                            <span class="error-msg" *ngIf="surname.touched && !surname.value">Surname is
+                                required</span>
+                            <span class="error-msg" *ngIf="surname.errors?.['minlength']">Surname must be at least 5
+                                characters.</span>
+                        </div>
 
-                    <label for="email">Email</label><br>
-                    <input class="p-1" type="email" id="email" ngModel name="email" #email="ngModel" required email
-                        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"><br>
+                        <label for="email">Email</label><br>
+                        <input class="col-12 p-1" type="email" id="email" ngModel name="email" #email="ngModel" required #userEmail
+                            email pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"><br>
 
-                    <div *ngIf="email.touched && !email.valid">
-                        <span class="error-msg" *ngIf="email.touched && !email.value">Email is required</span>
-                        <span class="error-msg" *ngIf="email.errors?.['pattern'] ">Enter valid email adress</span>
-                    </div>
-                    <label for="password">Password</label><br>
-                    <input class="p-1" type="password" id="password" name="password" #password="ngModel" ngModel
-                        required minlength="5"><br>
-                    <div *ngIf="password.touched && !password.valid">
-                        <span class="error-msg" *ngIf="password.touched && !password.value">Password is required</span>
-                        <span class="error-msg" *ngIf="password.errors?.['minlength'] ">Your password must be at least 5
-                            characters.</span>
-                    </div>
+                        <div *ngIf="email.touched && !email.valid">
+                            <span class="error-msg" *ngIf="email.touched && !email.value">Email is required</span>
+                            <span class="error-msg" *ngIf="email.errors?.['pattern'] ">Enter valid email
+                                adress</span>
+                        </div>
+                        <label for="password">Password</label><br>
+                        <input class="col-12 p-1" type="password" id="password" name="password" #password="ngModel"
+                            ngModel required minlength="5" #userPwd><br>
+                        <div *ngIf="password.touched && !password.valid">
+                            <span class="error-msg" *ngIf="password.touched && !password.value">Password is
+                                required</span>
+                            <span class="error-msg" *ngIf="password.errors?.['minlength'] ">Your password must be at
+                                least 5
+                                characters.</span>
+                        </div>
 
-                    <p class=" mt-5">Forgot password?</p>
-                    <button class="btn btn-light col-12" type="submit" [disabled]="!signUpForm.valid">Sign Up</button>
-                    <div class="mb-3 text-center" id="signup-text-div">
-                        <p>Already a member? <a id="signup-text" routerLink="/login">log In</a> </p>
-                    </div>
-                </form>
+                        <p class=" mt-5">Forgot password?</p>
+                        <button class="btn btn-light col-12" type="submit" [disabled]="!signUpForm.valid" (click)="authService.SignUp(userEmail.value, userPwd.value)">Sign
+                            Up</button>
+                        <div class="mb-3 text-center" id="signup-text-div">
+                            <p>Already a member? <a id="signup-text" routerLink="/login">log In</a> </p>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div id="signupModal" class="modal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content text-center">
+            <div class="modal-header">
+                <h3 class="modal-title naslov">Thank You for Registering</h3>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body pb-3">
+                <p>We have sent a confirmation email to your email.</p>
+                <p>Please check your email and click on the link to verify your email address.</p>
+                <button class="btn btn-dark p-2" (click)="sendMailAgain()" >Resend Verification Email</button>&nbsp;
+                <button class="btn btn-dark p-2" routerLink="/login" data-bs-dismiss="modal">Log in</button>
             </div>
         </div>
     </div>
 </div>
+
+<button id="openModalButton" [hidden]="true" data-toggle="modal" data-target="#signupModal">Open Modal</button>

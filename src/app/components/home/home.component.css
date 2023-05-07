@@ -14,7 +14,6 @@
    position: absolute;
    right: 0;
    top: 18%;
-   
 }
 
 #home-img-text1,
@@ -28,7 +27,6 @@
 }
 
 #button-Shop,
-
 #button-Load,
 #button-subscribe,
 #button-send,
@@ -74,10 +72,13 @@ input {
     background-image: url(../../../assets/FTD_SplitBanner_Merx_1.png);
     background-position: center;
     background-size: cover;
-   
 }
 
 #wishes-div,
 #buket-veliki {
     height: 400px;
+}
+
+#floatingmessage{
+    height: 90px;
 }

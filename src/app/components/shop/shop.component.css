@@ -1,14 +1,9 @@
 .cat-cover-img {
-    width: 100%;
+    width: 70%;
     border-bottom: 2px solid pink;
     cursor: pointer;
-
 }
 
 #cat-div-out{
     margin-bottom: 2em;
 }
-
-
-
-

@@ -1,8 +1,8 @@
 <div class="container-fluid d-flex justify-content-center ">
-    <div id="signup-box" class="col-md-8 d-flex justify-content-center align-items-center">
+    <div id="signup-box" class="col-md-8  d-flex justify-content-center align-items-center">
         <div class="row">
             <div class="col-12">
-                <form action="" [formGroup]="orderForm" (ngSubmit)="onSubmit()">
+                <form class="px-1" action="" [formGroup]="orderForm" (ngSubmit)="onSubmit()">
                     <div class="text-start form-floating marg form-group">
                         <input type="text" placeholder="First Name" class="form-control" id="firstName" name="firstName"
                             formControlName="firstName"><br>
@@ -70,7 +70,7 @@
                         <label for="paymentMethod">Payment method<span class="red-span">*</span>:</label><br>
                     </div>
                     <div class="text-center">
-                        <button id="confirm-btn" type="submit" class="btn btn-dark rounded-0 px-5 my-3" routerLink="/">Confirm</button>
+                        <button id="confirm-btn" type="submit" class="btn btn-dark rounded-0 px-5 my-3">Confirm</button>
                     </div>
                 </form>
             </div>

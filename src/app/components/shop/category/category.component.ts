@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProductsService } from 'src/app/services/products.service';
-import { Product } from '../../models/Product';
+import { Product } from '../../../models/Product';
 
 @Component({
   selector: 'app-category',
@@ -34,12 +34,8 @@ export class CategoryComponent implements OnInit {
   getProductsByCatId() {
     this.listOfProducts = this.productService.getProductsByCategory(this.currentCat);
   }
-
-  
   
   navigateToProduct(id: number) {
     this.productService.navigateToProduct2(id);
   }
-
-
 }

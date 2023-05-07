@@ -11,8 +11,6 @@ export class ShopComponent implements OnInit {
   categoryList: any[] = [];
   recentCategory: string;
 
-
-
   constructor(
     private productsService: ProductsService,
     private _router: Router
@@ -20,19 +18,15 @@ export class ShopComponent implements OnInit {
 
   ngOnInit(): void {
     this.categoryList = this.productsService.categoryList;
-    if(this.productsService.currentCategory == ""){
+    if (this.productsService.currentCategory == "") {
       this.loadCategory(this.categoryList[0].id);
-    } else{
+    } else {
       this.loadCategory(this.productsService.currentCategory);
     }
-    }
-  
-
-  loadCategory(id: string) {
-    console.log(id);
-    this._router.navigate(['/shop', id]);
-    this.recentCategory = id;
-    console.log(this.recentCategory)
   }
 
+  loadCategory(id: string) {
+    this._router.navigate(['/shop', id]);
+    this.recentCategory = id;
+  }
 }

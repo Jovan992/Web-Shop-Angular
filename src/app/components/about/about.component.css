@@ -1,0 +1,15 @@
+#about-cont {
+    font-size: smaller;
+    height: 400px;
+    background-image: url(../../../assets/MACRO_PLP_BANNER.jpg);
+    background-position: center;
+    background-size: cover;
+    justify-content: center;
+}
+
+.about-box{
+    background-color: #f7f7f7;
+    border-radius: 25px;
+    font-size: smaller;
+    margin-bottom: 24px;
+}

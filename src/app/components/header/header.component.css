@@ -19,12 +19,33 @@
     font-size: 12px;
 }
 
-#login-text{
+#login-text {
     font-size: 14px;
     text-decoration: none;
     color: black;
 }
 
-#cart-div{
+#cart-div {
     cursor: pointer;
+}
+
+.brand1 {
+    display: block;
+}
+
+.brand2 {
+    display: none;
+}
+
+.brand-img{
+    height: 24px;
+}
+
+@media (max-width: 991px) {
+    .brand1 {
+        display: none;
+    }
+    .brand2 {
+        display: block;
+    }
 }

@@ -1,66 +1,63 @@
-<nav id="nav-div" class="navbar navbar-expand-lg navbar-light bg-light py-1 justify-content-center">
-    <div class="col-md-8 col-12 px-2">
-        <div class="row d-flex justify-content-between">
-
-
-            <div class="container d-flex align-items-center justify-content-between">
-                <a class="navbar-brand d-none d-lg-block" href="#">
-                    <img src="assets/flowerLogo.png" height="24">
+<nav id="nav-div" class="navbar navbar-expand-lg navbar-light bg-light py-1 justify-content-center ">
+    <div class="container d-flex">
+        <div>
+            <button id="hamburger" class="navbar-toggler px-2" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+        <div>
+            <a class="navbar-brand brand1" href="#">
+                <img class="brand-img" src="assets/flowerLogo.png" >
+            </a>
+        </div>
+        <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+            <div>
+                <a class="navbar-brand brand2" href="#">
+                    <img class="brand-img" src="assets/flowerLogo.png" >
                 </a>
-                <button id="hamburger" class="navbar-toggler px-2" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
-                    aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse d-lg-flex justify-content-center" id="navbarNav">
-                    <ul class="navbar-nav margin-auto">
-                        <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
-                            <a class="nav-link" routerLink="/">Home</a>
-                        </li>
-                        <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
-                            <a class="nav-link" href="#text-div">About</a>
-                        </li>
-                        <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
-                            <a class="nav-link" routerLink="/shop">Shop</a>
-                        </li>
-                        <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
-                            <a class="nav-link" href="#info">Contact</a>
-                        </li>
-
-                    </ul>
-                </div>
-
-
-                <div id="header-ikonice" class="d-flex">
-                    <div class="me-1">
-                        <ul id="header-padajuci-user" class="mb-0">
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-                                    data-bs-toggle="dropdown" aria-expanded="false">
-                                    <i class="fa fa-user-circle-o" aria-hidden="true"></i>
-                                </a>
-                                <!-- <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
-                        </ul> -->
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="d-flex align-items-center mx-2">
-                        <a id="login-text" routerLink="/login">LogIn</a>
-                    </div>
-                    
-                    <div id="cart-div" class="position-relative" routerLink="/cart">
-                        <i class="fa fa-shopping-cart" aria-hidden="true">
-                            <span id="header-ikonica-brojac"
-                                class="position-absolute top-40 start-100 translate-middle badge rounded-pill bg-secondary">
-                                {{brojKorpe}}
-                                <span class="visually-hidden">brojac</span></span>
-                        </i>
-
-                    </div>
-                </div>
+            </div>
+            <ul class="navbar-nav margin-auto">
+                <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+                    <a class="nav-link" routerLink="/">Home</a>
+                </li>
+                <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+                    <a class="nav-link" routerLink="/about">About</a>
+                </li>
+                <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+                    <a class="nav-link" routerLink="/shop">Shop</a>
+                </li>
+                <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+                    <a class="nav-link" href="#info">Contact</a>
+                </li>
+            </ul>
+            
+        </div>
+        <div id="header-ikonice" class="d-flex">
+            <div class="me-1">
+                <ul id="header-padajuci-user" class="mb-0">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="d-flex align-items-center mx-2" *ngIf="authService.isLoggedIn">
+                <a id="login-text" (click)="authService.SignOut()">Log Out</a>
+            </div>
+            <div class="d-flex align-items-center mx-2" *ngIf="!authService.isLoggedIn">
+                <a id="login-text" routerLink="/login">Log In</a>
+            </div>
+            <div id="cart-div" class="position-relative" routerLink="/cart">
+                <i class="fa fa-shopping-cart" aria-hidden="true">
+                    <span id="header-ikonica-brojac"
+                        class="position-absolute top-40 start-100 translate-middle badge rounded-pill bg-secondary">
+                        {{brojKorpe}}
+                        <span class="visually-hidden">brojac</span></span>
+                </i>
             </div>
         </div>
     </div>

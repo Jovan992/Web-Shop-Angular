@@ -15,6 +15,16 @@ import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { ShopingCartComponent } from './components/shoping-cart/shoping-cart.component';
 import { ProductOrderComponent } from './components/product-order/product-order.component';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { inMemoryWebShop } from './shared/in-memory-web-shop';
+import { HttpClientModule } from '@angular/common/http';
+import { AboutComponent } from './components/about/about.component';
+import { AngularFireModule} from '@angular/fire/compat';
+import { AngularFireAuthModule} from '@angular/fire/compat/auth';
+import { AngularFireStorageModule} from '@angular/fire/compat/storage';
+import { AngularFirestoreModule} from '@angular/fire/compat/firestore';
+import { AngularFireDatabaseModule} from '@angular/fire/compat/database';
+import { environment } from './shared/environment';
 
 @NgModule({
   declarations: [
@@ -29,13 +39,20 @@ import { ProductOrderComponent } from './components/product-order/product-order.
     LoginComponent,
     SignupComponent,
     ShopingCartComponent,
-    ProductOrderComponent
+    ProductOrderComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule,
+    AngularFirestoreModule,
+    AngularFireStorageModule,
+    AngularFireDatabaseModule,
+    HttpClientModule, HttpClientInMemoryWebApiModule.forRoot(inMemoryWebShop, { dataEncapsulation: false })
   ],
   providers: [],
   bootstrap: [AppComponent]

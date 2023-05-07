@@ -1,5 +1,8 @@
 import { Component, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { AuthService } from 'src/app/services/auth.service';
+declare var $: any;
+
 
 @Component({
   selector: 'app-signup',
@@ -10,13 +13,23 @@ export class SignupComponent {
 
   signUpEntry: any;
 
-@ViewChild('signUpForm') signUpForm: NgForm;
+  @ViewChild('signUpForm') signUpForm: NgForm;
 
-signUp(){
-  this.signUpEntry = this.signUpForm.value;
-  console.log(this.signUpEntry)
-  
-  this.signUpForm.reset();
+  constructor(
+    public authService: AuthService,
+  ) { }
+
+  signUp() {
+    // this.signUpEntry = this.signUpForm.value;
+    // console.log(this.signUpEntry)
+
+    $("#signupModal").modal('show');
+
+    
+    this.signUpForm.reset();
   }
 
+  sendMailAgain(){
+    this.authService.SendVerificationMail()
+  }
 }

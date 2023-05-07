@@ -6,7 +6,7 @@
 }
 
 input{
-    width: 300px;
+    /* width: 300px; */
     border: 1px solid silver;
     border-radius: 3px;
 }
@@ -27,4 +27,12 @@ input{
 
 input.ng-invalid.ng-touched{
     border: 1px solid red;
+}
+
+#signupModal{
+    font-size: smaller;
+}
+
+.naslov{
+    padding-left: 60px;
 }

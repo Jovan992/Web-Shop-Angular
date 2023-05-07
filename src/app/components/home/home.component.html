@@ -5,19 +5,9 @@
         <button id="button-Shop" class="btn btn-secondary px-2 py-1" routerLink="/shop">SHOP FLOWERS</button>
     </div>
 </div>
-
-
-<div class="container-fluid d-flex justify-content-center">
-    <div class="col-md-8">
+<div class="container d-flex justify-content-center">
+    
         <div class="row">
-
-
-
-
-
-
-
-
             <div id="text-div" class="container d-flex p-3 justify-content-center">
                 <div class="col-lg-7 col-12 ">
                     <p>Established in 1910, FTD has been a premier provider of beatiful floral arrangements and gorgeous
@@ -102,8 +92,7 @@
                             <p>Store Policy /</p>
                             <p>Payment Methods /</p>
                         </div>
-
-                        <div id="forma" class="col-md-8">
+                        <div id="forma" class="col-md-8 pe-3 ">
                             <form action="" class="text-center" (ngSubmit)="onSendMessage()" #sendMessageForm="ngForm">
                                 <div class="row justify-content-end">
                                     <div class="col-lg-6">
@@ -129,7 +118,7 @@
                                     </div>
                                     <div class="col-lg-12 mt-1">
                                         <div class="form-floating p-0 polje-forma">
-                                            <input type="email" class="form-control" style="height: 90px;"
+                                            <input type="email" class="form-control" 
                                                 id="floatingmessage" placeholder="Message" name="message" ngModel>
                                             <label for="floatingmessage">Message</label>
                                         </div>
@@ -138,16 +127,16 @@
                                 <button type="submit" id="button-send"
                                     class="btn btn-outline-secondary m-3">SEND</button>
                             </form>
-
                             <form action="" (ngSubmit)="onSubscribe()" #subscribeForm="ngForm">
                                 <div class="row mx-0 p-0">
                                     <p class="px-0">Get our newsletters</p>
                                     <div id="newsletters-div" class="col-sm-12 col-md-6 px-0 ms-0 me-3 mb-1">
-                                        <input type="text" class="form-control"
-                                            placeholder="Enter your email here" name="emailSub" ngModel>
+                                        <input type="text" class="form-control" placeholder="Enter your email here"
+                                            name="emailSub" ngModel>
                                     </div>
                                     <div class="col-5 mt-0 ps-0">
-                                        <button type="submit" id="button-subscribe" class="btn btn-dark ms-0">Subscribe Now</button>
+                                        <button type="submit" id="button-subscribe" class="btn btn-dark ms-0">Subscribe
+                                            Now</button>
                                     </div>
                                 </div>
                             </form>
@@ -155,28 +144,22 @@
                     </div>
                 </div>
             </div>
-
-            <div id="buket-div" class="container-fluid p-0 my-3 text-white text-center">
-                <div class="row">
-                    <div id="wishes-div"
-                        class="d-flex align-items-center justify-content-center col-sm-12 col-md-6 m-0 p-0">
-                        <div class="">
-                            <h4>Send Get Well Wishes</h4>
-                            <p id="wishes-text">Brighten their recovery with beautiful florals, plants and gifts that
-                                will express
-                                your
-                                best wishes.</p>
-                            <button id="button-wishes" class="btn btn-secondary px-3 py-0">SHOP GET WELL FLOWERS &
-                                GIFTS</button>
-                        </div>
-                    </div>
-
-                    <div id="buket-veliki" class="col-sm-12 col-md-6 m-0 p-0">
-                    </div>
-                </div>
+        </div>
+</div>
+<div id="buket-div" class="container-fluid my-3 text-white text-center">
+    <div class="row">
+        <div id="wishes-div" class="d-flex align-items-center justify-content-center col-sm-12 col-md-6 m-0 px-5">
+            <div class="">
+                <h4>Send Get Well Wishes</h4>
+                <p id="wishes-text">Brighten their recovery with beautiful florals, plants and gifts that
+                    will express
+                    your
+                    best wishes.</p>
+                <button id="button-wishes" class="btn btn-secondary px-3 py-0">SHOP GET WELL FLOWERS &
+                    GIFTS</button>
             </div>
-
-
+        </div>
+        <div id="buket-veliki" class="col-sm-12 col-md-6 m-0 p-0">
         </div>
     </div>
 </div>

@@ -1,5 +1,6 @@
 import { Component, OnInit, } from '@angular/core';
 import { interval } from 'rxjs';
+import { AuthService } from 'src/app/services/auth.service';
 import { ShopService } from 'src/app/services/shop.service';
 
 @Component({
@@ -11,22 +12,22 @@ export class HeaderComponent implements OnInit {
 
   brojKorpe: number;
 
-  
-
   constructor(
-    private shopService: ShopService
+    private shopService: ShopService,
+    public authService: AuthService
   ) {
 
   }
   ngOnInit(): void {
-    {
-      this.brojKorpe = this.shopService.kolica.length;
-      setInterval(() => {
-        this.brojKorpe = this.shopService.kolica.length;
-        ;
-      }, 100);
-    }
+
+    this.brojKorpe = this.shopService.orderedItems.length;
+    setInterval(() => {
+      this.brojKorpe = this.shopService.orderedItems.length;
+      ;
+    }, 100);
   }
 
-
+  // setujBrojKorpe(){
+  //  this.brojKorpe = this.shopService.orderedItems.length;
+  // }
 }

@@ -1,5 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { AuthService } from 'src/app/services/auth.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -7,15 +8,19 @@ import { NgForm } from '@angular/forms';
 })
 export class LoginComponent {
 
-@ViewChild('logInForm') logInForm: NgForm;
+  @ViewChild('logInForm') logInForm: NgForm;
 
-logInEntry: any;
+  logInEntry: any;
 
-logIn(){
-  this.logInEntry = this.logInForm.value;
-console.log(this.logInEntry)
+  constructor(
+    public authService: AuthService,
+  ){}
 
-this.logInForm.reset();
-}
+  logIn() {
+    this.logInEntry = this.logInForm.value;
+    console.log(this.logInEntry)
+
+    this.logInForm.reset();
+  }
 
 }
