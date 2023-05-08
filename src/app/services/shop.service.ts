@@ -1,14 +1,19 @@
 import { Injectable, } from '@angular/core';
 import { orderedItem } from '../models/orderedItem';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable, findIndex } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ShopService {
-  
+
+  private productsUrl = 'api/orderedItems/';
+
   orderedItems: orderedItem[] = [];
   headers = new HttpHeaders().set('Content-Type', 'application/json');
+
+  c: number;
 
   constructor(
     private httpClient: HttpClient,
@@ -26,13 +31,32 @@ export class ShopService {
   isprazniKolica(orderedItems: orderedItem[]) {
     return this.httpClient.put('api', orderedItems, { headers: this.headers })
     // return this.httpClient.delete('api')
-    
-    console.log(this.httpClient.delete('api'))
-  } 
 
-  preuzmiOrdere() {
-    return this.httpClient.get<any[]>('api/orderedItems', {
-      headers: this.headers
-    })
   }
+
+  reset() {
+    this.orderedItems.forEach(item => {
+      this.deleteProduct(item.id);
+  });
+  // this.numberChanged.next(0);
+
+  // reset() {
+  //   this.orderedItems.forEach(orderedItem => {
+  //     this.deleteProduct(findIndex(orderedItem => orderedItem !==null));
+  //   this.deleteProduct(c);
+  // });
+  // this.numberChanged.next(0);
+}
+
+deleteProduct(id: number): Observable < any > {
+  return this.httpClient.delete(this.productsUrl + id);
+}
+
+
+
+preuzmiOrdere() {
+  return this.httpClient.get<any[]>('api/orderedItems', {
+    headers: this.headers
+  })
+}
 }
