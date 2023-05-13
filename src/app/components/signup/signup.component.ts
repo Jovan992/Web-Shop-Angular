@@ -11,8 +11,6 @@ declare var $: any;
 })
 export class SignupComponent {
 
-  signUpEntry: any;
-
   @ViewChild('signUpForm') signUpForm: NgForm;
 
   constructor(
@@ -20,11 +18,7 @@ export class SignupComponent {
   ) { }
 
   signUp() {
-    // this.signUpEntry = this.signUpForm.value;
-    // console.log(this.signUpEntry)
-
     $("#signupModal").modal('show');
-
     
     this.signUpForm.reset();
   }

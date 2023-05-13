@@ -22,12 +22,11 @@ export class ProductOrderComponent implements OnInit {
 
   onSubmit() {
     if (this.orderForm.valid) {
-      this._shopService.reset();
+      this._shopService.isprazniKolica();
       this._shopService.preuzmiOrdere().subscribe({
         next: (data) => {console.log(data)}
       })
       this._shopService.orderedItems = [];
-      debugger;
       console.log("Forma je validna.");
       this._router.navigate(['/']);
       // this._shopService.isprazniKolica(this._shopService.orderedItems);

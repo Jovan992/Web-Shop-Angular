@@ -3,7 +3,7 @@ import { Injectable, NgZone } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/compat/firestore';
 import { Router } from '@angular/router';
-import { User } from 'firebase/auth';
+import { User } from '../models/User';
 // import { UserMetadata } from 'firebase/auth/dist';
 
 @Injectable({
@@ -29,7 +29,7 @@ export class AuthService {
     });
   }
 
-  
+
   SignUp(email: string, password: string) {
     return this.angularFireAuth
       .createUserWithEmailAndPassword(email, password)
@@ -44,7 +44,6 @@ export class AuthService {
   }
 
   SendVerificationMail() {
-    debugger;
     return this.angularFireAuth.currentUser
       .then((u: any) => u.sendEmailVerification());
   }
@@ -57,33 +56,12 @@ export class AuthService {
       uid: user.uid,
       email: user.email,
       displayName: user.displayName,
-      photoURL: user.photoURL,
-      emailVerified: user.emailVerified,
-      isAnonymous: false,
-      metadata: {},
-      providerData: [],
-      refreshToken: '',
-      tenantId: null,
-
-
-      phoneNumber: null,
-      providerId: '',
-      delete: function (): Promise<void> {
-        throw new Error('Function not implemented.');
-      },
-      getIdToken: function (forceRefresh?: boolean | undefined): Promise<string> {
-        throw new Error('Function not implemented.');
-      },
-      getIdTokenResult: function (forceRefresh?: boolean | undefined): Promise<auth.IdTokenResult> {
-        throw new Error('Function not implemented.');
-      },
-      reload: function (): Promise<void> {
-        throw new Error('Function not implemented.');
-      },
-      toJSON: function (): object {
-        throw new Error('Function not implemented.');
-      }
+      photoUrl: user.photoURL,
+      emailVerified: user.emailVerified
     };
+
+    this.userData = user;
+
     return userRef.set(userData, {
       merge: true,
     });
@@ -120,5 +98,4 @@ export class AuthService {
       this.router.navigate(['login']);
     })
   }
-
 }

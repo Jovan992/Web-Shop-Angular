@@ -1,5 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Params } from '@angular/router';
 import { ProductsService } from 'src/app/services/products.service';
 import { Product } from '../../../models/Product';
 
@@ -10,32 +10,25 @@ import { Product } from '../../../models/Product';
 })
 export class CategoryComponent implements OnInit {
   listOfProducts: Product[] = [];
-  currentCat = this.productService.currentCategory;
+  currentCat: string;
 
   constructor(
     private _route: ActivatedRoute,
-    private _router: Router,
-    private productService: ProductsService
+    public productsService: ProductsService
   ) { }
 
   ngOnInit(): void {
-    this.currentCat = this._route.snapshot.params['category']
+    this.currentCat = this.productsService.currentCategory = this._route.snapshot.params['category'];
     this.getProductsByCatId();
-
-    this._route.params.subscribe({
-      next: (data: any) => {
-        this.currentCat = data.category;
+    this._route.params.subscribe(
+      (params: Params) => {
+        this.productsService.currentCategory = this.currentCat = params['category'];
         this.getProductsByCatId();
-      },
-      error: (err) => console.log(err)
-    });
-  }
+      }
+    )
+  };
 
   getProductsByCatId() {
-    this.listOfProducts = this.productService.getProductsByCategory(this.currentCat);
-  }
-  
-  navigateToProduct(id: number) {
-    this.productService.navigateToProduct2(id);
+    this.listOfProducts = this.productsService.getProductsByCategory(this.currentCat);
   }
 }

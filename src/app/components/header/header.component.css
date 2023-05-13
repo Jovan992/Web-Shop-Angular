@@ -8,7 +8,7 @@
 }
 
 #header-ikonica-brojac {
-    font-size: 10px;
+    font-size: 11px;
 }
 
 #nav-div {
@@ -23,10 +23,6 @@
     font-size: 14px;
     text-decoration: none;
     color: black;
-}
-
-#cart-div {
-    cursor: pointer;
 }
 
 .brand1 {

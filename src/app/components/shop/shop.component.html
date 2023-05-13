@@ -1,7 +1,7 @@
 <div class="container d-flex justify-content-center">
     <div class="row">
         <div id="category-div" class="d-flex p-3 justify-content-between">
-            <div class="col-3 px-2 text-center" *ngFor="let cat of categoryList" (click)='loadCategory(cat.id)'>
+            <div class="col-3 px-2 text-center pointer" *ngFor="let cat of categoryList" (click)='loadCategory(cat.id)'>
                 <p>{{cat.name}}</p>
                 <img [src]="cat.imgSrc" class="cat-cover-img">
             </div>

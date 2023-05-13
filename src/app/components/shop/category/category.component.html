@@ -1,6 +1,6 @@
 
         <div id="cat-row-gap" class="row justify-content-between">
-            <div  class="col-md-6 col-lg-4 my-2 p-0" *ngFor="let prod of listOfProducts" (click)="navigateToProduct(prod.id)">
+            <div  class="col-md-6 col-lg-4 my-2 p-0 pointer" *ngFor="let prod of listOfProducts" (click)="productsService.navigateToProduct(prod.id)">
                 <img class="img-fluid p-1" [src]="prod.imgSrc" alt=""><br>
                 <span id="nazivProizvoda">{{prod.name}}</span><br>
                 <span id="cenaProizvoda">{{prod.price}}</span><em>$</em><br>

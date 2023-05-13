@@ -58,7 +58,7 @@ export class ProductsService {
     return this.listOfProducts.find(x => x.id == id) as Product;
   }
 
-  navigateToProduct2(id: number) {
+  navigateToProduct(id: number) {
     this._router.navigate(['/product', id]);
   }
 }

@@ -9,7 +9,6 @@ import { ProductsService } from 'src/app/services/products.service';
 })
 export class ShopComponent implements OnInit {
   categoryList: any[] = [];
-  recentCategory: string;
 
   constructor(
     private productsService: ProductsService,
@@ -25,8 +24,8 @@ export class ShopComponent implements OnInit {
     }
   }
 
-  loadCategory(id: string) {
-    this._router.navigate(['/shop', id]);
-    this.recentCategory = id;
+  loadCategory(catName: string) {
+    this._router.navigate(['/shop', catName]);
+    
   }
 }

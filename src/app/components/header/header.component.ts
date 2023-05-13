@@ -1,5 +1,5 @@
-import { Component, OnInit, } from '@angular/core';
-import { interval } from 'rxjs';
+import { Component, OnDestroy, OnInit, } from '@angular/core';
+import { Subscription, interval } from 'rxjs';
 import { AuthService } from 'src/app/services/auth.service';
 import { ShopService } from 'src/app/services/shop.service';
 
@@ -8,9 +8,10 @@ import { ShopService } from 'src/app/services/shop.service';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit, OnDestroy {
 
-  brojKorpe: number;
+  subscription: Subscription;
+  numbOfProduct: number = 0;
 
   constructor(
     private shopService: ShopService,
@@ -19,15 +20,13 @@ export class HeaderComponent implements OnInit {
 
   }
   ngOnInit(): void {
-
-    this.brojKorpe = this.shopService.orderedItems.length;
-    setInterval(() => {
-      this.brojKorpe = this.shopService.orderedItems.length;
-      ;
-    }, 100);
+    this.subscription = this.shopService.getNumbOfroduct().subscribe(numb => {
+      this.numbOfProduct = numb;
+    })
   }
 
-  // setujBrojKorpe(){
-  //  this.brojKorpe = this.shopService.orderedItems.length;
-  // }
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
+  }
+
 }

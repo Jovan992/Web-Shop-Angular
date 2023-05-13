@@ -1,39 +1,36 @@
-<div class="container-fluid d-flex justify-content-center">
-    <div class="col-md-8">
-        <div class="col-12 d-flex row justify-content-between">
-            <div class="col-6 d-flex justify-content-start my-1">
+<div class="container d-flex justify-content-center">
+    <div class="row">
+        <div class="col-12 d-flex row justify-content-between px-0 mx-0">
+            <div class="col-8 d-flex justify-content-start my-1 pointer">
                 <a [routerLink]="['/']">Home</a>
                 <a [routerLink]="['/shop']">/Shop</a>
                 <a [routerLink]="['/shop', currentProduct.category]">/{{currentProduct.category}}</a>
                 <a>/{{currentProduct.name}}</a>
             </div>
-            <div class="col-6 d-flex justify-content-end">
+            <div class="col-4 d-flex justify-content-end pointer">
                 <a (click)="prev(); kolicina.value=''">&lt; Prev |</a>
                 <a (click)="next(); kolicina.value=''">&nbsp;Next &gt;</a>
             </div>
-            <div class="d-flex justify-content-center row col-12">
-                <div class="row d-flex justify-content-between col-12 mx-auto">
-                </div>
-                <div class="row d-flex justify-content-end col-12">
-                    <div class="d-flex justify-content-end col-12 col-lg-5">
-                        <img [src]="currentProduct.imgSrc" class="img-fluid"><br>
+        </div>
+
+        <div class="row col-12 d-flex justify-content-center px-0 mx-0">
+            <div class="d-flex justify-content-center justify-content-lg-end col-12 col-lg-6">
+                <img [src]="currentProduct.imgSrc" class="img-fluid"><br>
+            </div>
+            <div class="col-12 col-lg-6">
+                <span id="nazivProizvoda">{{currentProduct.name}}</span><br>
+                <span id="cenaProizvoda">{{currentProduct.price}}</span><strong>$</strong><br>
+                <span id="opisProizvoda">{{currentProduct.description}}</span><br>
+                <hr>
+                <form action="">
+                    <label for="">Quantity</label>
+                    <div class="row col-4 p-2">
+                        <input type="number" min="0" maax="999" class="form-control" #kolicina>
+                        <button type="submit" class="btn btn-dark mt-2 mb-5 px-1"
+                            (click)="addToCart(currentProduct.name, kolicina.value, currentProduct.price, currentProduct.imgSrc, currentProduct.id); kolicina.value=''">Add
+                            to cart</button>
                     </div>
-                    <div class=" col-12 col-lg-6">
-                        <span id="nazivProizvoda">{{currentProduct.name}}</span><br>
-                        <span id="cenaProizvoda">{{currentProduct.price}}</span><strong>$</strong><br>
-                        <span id="opisProizvoda">{{currentProduct.description}}</span><br>
-                        <hr>
-                        <form action="" #quantityForm>
-                            <label for="">Quantity</label>
-                            <div class="row col-4 p-2">
-                                <input type="number" min="0" class="form-control" #kolicina>
-                                <button type="submit" class="btn btn-dark mt-2 mb-5 px-1"
-                                    (click)="addToCart(currentProduct.name, kolicina.value, currentProduct.price, currentProduct.imgSrc); kolicina.value=''">Add
-                                    to cart</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
+                </form>
             </div>
         </div>
     </div>

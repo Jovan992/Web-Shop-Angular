@@ -8,13 +8,13 @@
             </button>
         </div>
         <div>
-            <a class="navbar-brand brand1" href="#">
+            <a class="navbar-brand brand1" routerLink="/">
                 <img class="brand-img" src="assets/flowerLogo.png" >
             </a>
         </div>
         <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
             <div>
-                <a class="navbar-brand brand2" href="#">
+                <a class="navbar-brand brand2" routerLink="/">
                     <img class="brand-img" src="assets/flowerLogo.png" >
                 </a>
             </div>
@@ -45,17 +45,17 @@
                     </li>
                 </ul>
             </div>
-            <div class="d-flex align-items-center mx-2" *ngIf="authService.isLoggedIn">
+            <div class="d-flex align-items-center mx-2 pointer" *ngIf="authService.isLoggedIn">
                 <a id="login-text" (click)="authService.SignOut()">Log Out</a>
             </div>
-            <div class="d-flex align-items-center mx-2" *ngIf="!authService.isLoggedIn">
+            <div class="d-flex align-items-center mx-2 pointer" *ngIf="!authService.isLoggedIn">
                 <a id="login-text" routerLink="/login">Log In</a>
             </div>
-            <div id="cart-div" class="position-relative" routerLink="/cart">
+            <div class="position-relative pointer" routerLink="/cart">
                 <i class="fa fa-shopping-cart" aria-hidden="true">
                     <span id="header-ikonica-brojac"
                         class="position-absolute top-40 start-100 translate-middle badge rounded-pill bg-secondary">
-                        {{brojKorpe}}
+                        {{numbOfProduct}}
                         <span class="visually-hidden">brojac</span></span>
                 </i>
             </div>

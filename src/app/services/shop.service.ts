@@ -1,7 +1,7 @@
 import { Injectable, } from '@angular/core';
 import { orderedItem } from '../models/orderedItem';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable, findIndex } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -10,15 +10,19 @@ export class ShopService {
 
   private productsUrl = 'api/orderedItems/';
 
+  shopingCartNumberChanged: Subject<number> = new Subject<number>();
+  currentNumberOfProducts: number = 0;
+
   orderedItems: orderedItem[] = [];
   headers = new HttpHeaders().set('Content-Type', 'application/json');
 
-  c: number;
-
   constructor(
     private httpClient: HttpClient,
-
   ) { }
+
+  getNumbOfroduct(): Observable<number> {
+    return this.shopingCartNumberChanged.asObservable();
+  };
 
   dodajUKolica(item: orderedItem) {
     return this.httpClient.post('api/orderedItems', item, { headers: this.headers });
@@ -28,35 +32,26 @@ export class ShopService {
     return this.httpClient.put('api/orderedItems', item, { headers: this.headers })
   }
 
-  isprazniKolica(orderedItems: orderedItem[]) {
-    return this.httpClient.put('api', orderedItems, { headers: this.headers })
-    // return this.httpClient.delete('api')
-
+  isprazniKolica() {
+    this.orderedItems.forEach(item => {
+      this.deleteProduct(item.id).subscribe({
+        next: (data) => {
+          console.log(data);
+        }
+      })
+    });
+    this.orderedItems = [];
+    this.currentNumberOfProducts = 0;
+    this.shopingCartNumberChanged.next(0);
   }
 
-  reset() {
-    this.orderedItems.forEach(item => {
-      this.deleteProduct(item.id);
-  });
-  // this.numberChanged.next(0);
+  deleteProduct(id: number): Observable<any> {
+    return this.httpClient.delete(this.productsUrl + id);
+  }
 
-  // reset() {
-  //   this.orderedItems.forEach(orderedItem => {
-  //     this.deleteProduct(findIndex(orderedItem => orderedItem !==null));
-  //   this.deleteProduct(c);
-  // });
-  // this.numberChanged.next(0);
-}
-
-deleteProduct(id: number): Observable < any > {
-  return this.httpClient.delete(this.productsUrl + id);
-}
-
-
-
-preuzmiOrdere() {
-  return this.httpClient.get<any[]>('api/orderedItems', {
-    headers: this.headers
-  })
-}
+  preuzmiOrdere() {
+    return this.httpClient.get<any[]>('api/orderedItems', {
+      headers: this.headers
+    })
+  }
 }
